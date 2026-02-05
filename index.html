@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Theresa do you want to be my Valentine (my Wife hehe😝) ?</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-900 text-white">
+
+  <div class="text-center space-y-6">
+    <h1 id="question" class="text-3xl font-bold">
+      Theresa do you want to be my Valentine (my Wife hehe😝) ?
+    </h1>
+
+    <img id="gif"
+      src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+      class="mx-auto w-64 rounded-xl" />
+
+    <div class="space-x-4">
+      <button id="yesBtn"
+        class="px-6 py-3 bg-pink-500 rounded-xl text-lg transition">
+        Ja natürlich😏
+      </button>
+
+      <button id="noBtn"
+        class="px-6 py-3 bg-gray-600 rounded-xl text-lg transition">
+        Nein 💔
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const gif = document.getElementById("gif");
+    const question = document.getElementById("question");
+
+    noBtn.addEventListener("click", () => {
+      gif.src = "https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif";
+      yesBtn.classList.add("scale-125");
+      noBtn.textContent = "Nein (ich werde dich finden und packen🤬)";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      gif.src = "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif";
+      question.textContent = "Yaaaay 💕";
+
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    });
+  </script>
+
+</body>
+</html>
